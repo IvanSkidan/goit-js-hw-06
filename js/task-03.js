@@ -12,3 +12,25 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const gallery = document.querySelector(".gallery");
+
+const markup = images
+  .map((image) =>
+    `<li><img src="${image.url}" alt="${image.alt}" width="300" height="200"></li>`)
+  .join(""); // Прибираємо кому після кожного фото, додаючи пустий символ ""
+
+// console.log(markup);
+gallery.insertAdjacentHTML("beforeend", markup);
+
+
+
+// Варіант 2
+// const gallery = document.querySelector('.gallery');
+
+// const markup = ({ url, alt }) => `<li><img src="${url}" alt="${alt}" width="300" height="200"></li>`;
+
+// const galleryMarkup = images.reduce((accumulator, element) => accumulator + markup(element), []);
+
+// // console.log(galleryMarkup);
+// gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
